@@ -5,7 +5,7 @@ import Flash from './Flash'
 
 export default class FlashMessage {
 
-    constructor(message, type = 'danger', options = {}) {
+    constructor (message, type = 'danger', options = {}) {
         this.message = message
         this.type = type
         this.options = Object.assign({}, FlashMessage.DEFAULT_OPTIONS, options)
@@ -13,7 +13,31 @@ export default class FlashMessage {
         this.$_message = null
         this._build()
     }
-    
+
+    static success (message, options = {}) {
+        return new FlashMessage(message, 'success', options)
+    }
+
+    static warning (message, options = {}) {
+        return new FlashMessage(message, 'warning', options)
+    }
+
+    static error (message, options = {}) {
+        return new FlashMessage(message, 'error', options)
+    }
+
+    static info (message, options = {}) {
+        return new FlashMessage(message, 'info', options)
+    }
+
+    static addCustomTypes (...custom_types) {
+        if (!custom_types || !custom_types.length) return
+        custom_types.forEach(type => {
+            if (!FlashMessage[type])
+                FlashMessage[type] = (message, options = {}) => new FlashMessage(message, type, options)
+        })
+    }
+
     static get DEFAULT_OPTIONS () {
         return {
             container: '.flash-container',

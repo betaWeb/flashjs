@@ -1,11 +1,11 @@
-import Flash from '../src/Flash'
+import Flash from './Flash'
 import jQuery from 'jquery'
 
 ;(function($, window, document, undefined) {
 
 	"use strict";
 
-    var pluginName = "flash";
+    var pluginName = "flashjs";
 
     function Plugin (element, options) {
         this.element = element;

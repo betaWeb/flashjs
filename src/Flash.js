@@ -51,7 +51,10 @@ export default class Flash {
 
     _initEvents () {
         this.$flash
-            .hover(() => this._stop(), () => this._run())
+            .hover(
+                () => this._stop(),
+                () => this._run()
+            )
             .on('click', () => this._close())
     }
 
