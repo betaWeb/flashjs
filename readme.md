@@ -1,8 +1,9 @@
 # FlashJS
-## A JavaScript plugin to create flash messages (with jQuery)
+### A JavaScript plugin to create flash messages (with jQuery)
 Flashjs provides tools to create flash messages or add flash behavior on existing DOM elements.
 
 ### Basic example :
+##### JavaScript
 ```JS
 $('document').ready(function () {
 
@@ -15,6 +16,7 @@ Flashjs provides a global variable named `FlashJS` on JavaScript `window` object
 <br>
 <br>
 ### Add flash behavior on existing HTML element :
+##### HTML
 ```HTML
 <body>
   <div class="flash-container">
@@ -23,6 +25,7 @@ Flashjs provides a global variable named `FlashJS` on JavaScript `window` object
 </body>
 ```
 
+##### JavaScript
 ```JS
 $('document').ready(function () {
 
