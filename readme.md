@@ -33,10 +33,12 @@ $('document').ready(function () {
     timeout: 5000
   };
 
+  // With jQuery plugin
   $('.flash').flashjs(options);
 
-  // OR
-
+  // OR 
+  
+  // without jQuery plugin
   $('.flash').each(function () {
     var message = new window.Flash($(this), options); // add flashjs behavior on DOM element
   });
