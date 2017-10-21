@@ -349,42 +349,42 @@ article{
 			}
 
 			&.flash-success {
-					&:before{ background-color: rgba($success, .8); }
+					&:before{ background-color: $success; }
 					&:after{
 						color: rgba($success, .5);
 						content: '\f058';
 					}
 			}
 			&.flash-warning {
-					&:before{ background-color: rgba($warning, .8); }
+					&:before{ background-color: $warning; }
 					&:after{
 						color: rgba($warning, .5);
 						content: '\f071';
 					}
-			}
+			} 
 			&.flash-danger, &.flash-error {
-					&:before{ background-color: rgba($error, .8); }
+					&:before{ background-color: $error; }
 					&:after{
 						color: rgba($error, .5);
 						content: '\f06a';
 					}
 			}
 			&.flash-info {
-					&:before{ background-color: rgba($info, .8); }
+					&:before{ background-color: $info; }
 					&:after{
 						color: rgba($info, .5);
 						content: '\f05a';
 					}
 			}
 			&.flash-bug {
-					&:before{ background-color: rgba($purple, .8); }
+					&:before{ background-color: $purple; }
 					&:after{
 						color: rgba($purple, .5);
 						content: '\f188';
 					}
 			}
 			&.flash-disabled {
-					&:before{ background-color: rgba($disabled, .8); }
+					&:before{ background-color: $disabled; }
 					&:after{
 						color: rgba($disabled, .5);
 						content: '\f05e';
@@ -393,5 +393,25 @@ article{
 			&.flash-default {
 				padding-right: 20px;
 			}
+	}
+}
+
+@media all and (max-width: 1280px) {
+	.flash-container {
+		max-width: 33.334%;
+	}
+}
+
+@media all and (max-width: 768px) {
+	.flash-container {
+		max-width: 50%;
+	}
+}
+
+@media all and (max-width: 480px) {
+	.flash-container {
+		right: 10px;
+		left: 10px;
+		max-width: 100%;
 	}
 }

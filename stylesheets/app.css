@@ -317,34 +317,48 @@ article {
       -webkit-transform: translateX(0);
               transform: translateX(0); }
     .flash-container .flash-message.flash-success:before {
-      background-color: rgba(76, 175, 80, 0.8); }
+      background-color: #4CAF50; }
     .flash-container .flash-message.flash-success:after {
       color: rgba(76, 175, 80, 0.5);
       content: '\f058'; }
     .flash-container .flash-message.flash-warning:before {
-      background-color: rgba(255, 133, 27, 0.8); }
+      background-color: #FF851B; }
     .flash-container .flash-message.flash-warning:after {
       color: rgba(255, 133, 27, 0.5);
       content: '\f071'; }
     .flash-container .flash-message.flash-danger:before, .flash-container .flash-message.flash-error:before {
-      background-color: rgba(255, 65, 54, 0.8); }
+      background-color: #FF4136; }
     .flash-container .flash-message.flash-danger:after, .flash-container .flash-message.flash-error:after {
       color: rgba(255, 65, 54, 0.5);
       content: '\f06a'; }
     .flash-container .flash-message.flash-info:before {
-      background-color: rgba(0, 116, 217, 0.8); }
+      background-color: #0074D9; }
     .flash-container .flash-message.flash-info:after {
       color: rgba(0, 116, 217, 0.5);
       content: '\f05a'; }
     .flash-container .flash-message.flash-bug:before {
-      background-color: rgba(138, 43, 226, 0.8); }
+      background-color: #8A2BE2; }
     .flash-container .flash-message.flash-bug:after {
       color: rgba(138, 43, 226, 0.5);
       content: '\f188'; }
     .flash-container .flash-message.flash-disabled:before {
-      background-color: rgba(170, 170, 170, 0.8); }
+      background-color: #aaa; }
     .flash-container .flash-message.flash-disabled:after {
       color: rgba(170, 170, 170, 0.5);
       content: '\f05e'; }
     .flash-container .flash-message.flash-default {
       padding-right: 20px; }
+
+@media all and (max-width: 1280px) {
+  .flash-container {
+    max-width: 33.334%; } }
+
+@media all and (max-width: 768px) {
+  .flash-container {
+    max-width: 50%; } }
+
+@media all and (max-width: 480px) {
+  .flash-container {
+    right: 10px;
+    left: 10px;
+    max-width: 100%; } }
