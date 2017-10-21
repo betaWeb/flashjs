@@ -59,11 +59,7 @@ export default class FlashMessage {
 
     _createContainer () {
         this.$_container = document.querySelector(this.options.container) || null
-        if (
-            !this.$_container 
-            || !this.$_container.length 
-            || !node.contains(this.$_container)
-        ) {
+        if (this.$_container === null || !document.body.contains(this.$_container)) {
             this.$_container = document.createElement('div')
             this.$_container.classList.add(this.options.container.replace(/^\./g, ''))
             if (document.body.firstChild) document.body.insertBefore(this.$_container, document.body.firstChild)
