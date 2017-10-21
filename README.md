@@ -1,1 +1,1 @@
-http://betaweb.github.io/inputTags-jQuery-plugin/
+You can find the whole documentation at https://betaweb.github.io/flashjs/.
