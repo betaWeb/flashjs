@@ -3,6 +3,9 @@
 const path = require('path')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const externals = {
+  "jquery": "jQuery"
+}
 
 let config = {
 
@@ -38,7 +41,9 @@ let config = {
       verbose: true,
       dry: false
     })
-  ]
+  ],
+
+  externals
 
 }
 
