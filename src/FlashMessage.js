@@ -1,6 +1,5 @@
 'use strict'
 
-import $ from 'jquery'
 import Flash from './Flash'
 
 export default class FlashMessage {
@@ -9,8 +8,9 @@ export default class FlashMessage {
         this.message = message
         this.type = type
         this.options = Object.assign({}, FlashMessage.DEFAULT_OPTIONS, options)
-        this.$_container = $(`body > ${this.options.container}`)
+        this.$_container = null
         this.$_message = null
+        this._createContainer()
         this._build()
     }
 
@@ -46,21 +46,29 @@ export default class FlashMessage {
     }
 
     _build () {
-        this.$_message = $('<div>')
-        this.$_message
-            .addClass(`alert alert-${this.type} flash-message flash-${this.type}`)
-            .html(this.message)
+        this.$_message = document.createElement('div')
+        this.$_message.classList.add('flash-message', `flash-${this.type}`)
+        this.$_message.innerHTML = this.message
         this._append()
         this._display()
     }
 
     _append () {
-        if (!this.$_container || !this.$_container.length) {
-            this.$_container = $('<div>')
-            this.$_container.addClass(this.options.container.replace(/^\./g, ''))
-            this.$_container.prependTo('body')
+        this.$_container.appendChild(this.$_message)
+    }
+
+    _createContainer () {
+        this.$_container = document.querySelector(this.options.container) || null
+        if (
+            !this.$_container 
+            || !this.$_container.length 
+            || !node.contains(this.$_container)
+        ) {
+            this.$_container = document.createElement('div')
+            this.$_container.classList.add(this.options.container.replace(/^\./g, ''))
+            if (document.body.firstChild) document.body.insertBefore(this.$_container, document.body.firstChild)
+            else document.body.appendChild(this.$_container)
         }
-        this.$_container.append(this.$_message)
     }
 
     _display () {
