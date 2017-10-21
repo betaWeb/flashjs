@@ -1,12 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>FlashJS Javascript | BetaWeb</title>
-</head>
-<body>
-  <h1>FlashJS Javascript</h1>
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>flash.js | betaWeb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/inputTags.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/app.css" media="screen">
+  </head>
+  <body>
+    <div id="overlay" class="overlay"></div>
+    <div id="scroll-catcher" class="scroll-catcher"></div>
+    <header>
+      <a class="logo" href="#home">flash.js</a>
+
+      <div id="right-menu" class="right-menu pull-right">
+        <a href="#getting-started" class="menu-link">Getting started</a>
+        <a href="#examples" class="menu-link">Examples</a>
+        <a href="#doc" class="menu-link">Documentation</a>
+        <a href="https://github.com/betaWeb/flashjs" target="_blank" class="fa fa-github gh-link-first" title="GitHub repository"></a>
+        <a href="https://github.com/betaWeb/flashjs/archive/master.zip" class="fa fa-cloud-download gh-link-last" title="Download Latest as .zip"></a>
+      </div>
+      <div id="mobile-menu-trigger" class="mobile-menu-trigger fa fa-bars"></div>
+    </header>
+
+    <section class="main-content">
+
+        <article id="home">
+            <h2 class="font center header-block"><a class="anchor" href="#home" aria-hidden="true"><span class="octicon octicon-link"></span></a>Presentation</h2>
+
+            <p class="presentation"><a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">Flash.js</a> is a simple JavaScript library allowing you to create and handle HTML flash messages.</p>
+
+            <br>
+
+            <h2 class="font center header-block"><a id="Installation" class="anchor" href="#Installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+            <p>Make sure you include the script after the jQuery library.</p>
+            <p class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;<br>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/flashjs.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></p>
+        </article>
+
+        <article id="getting-started">
+            <h2 class="font center header-block"><a class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
+            <p>Use <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> is very easy. To display a success flash message, you just have to add this line below and that's it !</p>
+            <div class="highlight highlight-js"><pre><span class="pl-c1">window</span>.<span class="pl-smi">Flashjs</span>.<span class="pl-en">success</span>(<span class="pl-s"><span class="pl-pds">'</span>This is a successs flash message !<span class="pl-pds">'</span></span>);</pre></div>
+            <p>Four verbs are availables :
+              <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">success</span>
+              <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">warning</span>
+              <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">error</span>
+              <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">info</span>
+            </p>
+            <p>You can add custom verbs with by call the static method <a href="https://github.com/betaWeb/flashjs/blob/master/src/FlashMessage.js#L33" target="_blank" class="color underlined">addCustomTypes</a> on the <a href="https://github.com/betaWeb/flashjs/blob/master/src/FlashMessage.js" target="_blank" class="color underlined">FlashMessage</a> class :</p>
+            <div class="highlight highlight-js"><pre><span class="pl-c1">window</span>.<span class="pl-smi">FlashMessage</span>.<span class="pl-en">addCustomTypes</span>(<span class="pl-s"><span class="pl-pds">'</span>forbidden<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>example<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>custom<span class="pl-pds">'</span></span>);<br><span class="pl-c1">window</span>.<span class="pl-smi">Flashjs</span>.<span class="pl-en">forbidden</span>(<span class="pl-s"><span class="pl-pds">'</span>My custom forbidden flash message !<span class="pl-pds">'</span></span>);</pre></div>
+            <p>In the example above, three custom verbs have been added. As you can see, you can now use thses verbs !</p>            
+            <br>
+            <p>You can also create a flash message by instanciating the <a href="https://github.com/betaWeb/flashjs/blob/master/src/FlashMessage.js" target="_blank" class="color underlined">FlashMessage</a> class :</p>
+            <div class="highlight highlight-js"><pre><span class="pl-en">new</span>&nbsp;<span class="pl-c1">window</span>.<span class="pl-smi">FlashMessage</span>(<span class="pl-s"><span class="pl-pds">'</span>This is a successs flash message !<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>);</pre></div>
+        </article>
+
+        <article id="examples">
+            <h2 class="font center header-block"><a class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try it !</h2>
+            <p>Click on the button of your choice to display flash message with <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> :</p>
+            <p id="examples-1" class="btns-examples">
+              <button data-flash="success" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-success">Success flash</button>
+              <button data-flash="warning" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-warning">Warning flash</button>
+              <button data-flash="error" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-error">Error flash</button>
+              <button data-flash="info" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-info">Info flash</button>
+              <button data-flash="bug" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-bug">Bug flash</button>
+              <button data-flash="disabled" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-disabled">Disabled flash</button>
+              <button data-flash="default" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-default">Default flash</button>
+            </p>
+            <br>
+        </article>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/flash.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
+
