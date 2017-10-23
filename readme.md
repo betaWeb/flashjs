@@ -1,47 +1,38 @@
 # FlashJS
 ### A JavaScript plugin to create flash messages (with jQuery)
-Flashjs provides tools to create flash messages or add flash behavior on existing DOM elements.
+Flash.js is a simple JavaScript library allowing you to create and handle HTML flash messages.
 
-### Basic example :
-##### JavaScript
+### Installation :
+You only have to include the flash.js script into your HTML. That's it !
+
 ```JS
-$('document').ready(function () {
+<script src="/path/to/flashjs.min.js"></script>
 
-  window.Flashjs.success('This is a successs flash message !');
-
-});
 ```
-Flashjs provides a global variable named `FlashJS` on JavaScript `window` object.
 <br>
-<br>
-<br>
-### Add flash behavior on existing HTML element :
-##### HTML
-```HTML
-<body>
-  <div class="flash-container">
-    <div class="flash flash-error">An error has occurred !</div>
-  </div>
-</body>
-```
 
-##### JavaScript
+### Getting started :
+Use flash.js is very easy. To display a success flash message, you just have to add this line below.
 ```JS
-$('document').ready(function () {
-
-  var options = {
-    timeout: 5000
-  };
-
-  // With jQuery plugin
-  $('.flash').flashjs(options);
-
-  // OR 
-  
-  // without jQuery plugin
-  $('.flash').each(function () {
-    var message = new window.Flash($(this), options); // add flashjs behavior on DOM element
-  });
-
-});
+window.Flashjs.success('This is a successs flash message !');
 ```
+By default, four verbs are availables : `success`, `warning`, `error` and `info`
+
+You can add custom verbs with by call the static method addCustomTypes on the FlashMessage class :
+```JS
+window.FlashMessage.addCustomTypes('forbidden', 'example', 'custom');
+window.Flashjs.forbidden('My custom forbidden flash message !');
+```
+In the example above, three custom verbs have been added. As you can see, you can now use thses verbs !
+
+<br>
+
+You can also create a flash message by instanciating the FlashMessage class :
+
+```JS
+new window.FlashMessage('This is a successs flash message !', 'success');
+```
+
+<br>
+
+You can read the [documentation](https://betaweb.github.io/flashjs/) for more informations.

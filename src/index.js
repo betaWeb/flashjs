@@ -1,13 +1,15 @@
 import Flash from './Flash'
 import FlashMessage from './FlashMessage'
 
-if (window !== undefined) {
-  if (!(window.Flash)) {
-    window.Flash = Flash
+(function (w) {
+  if (w !== undefined) {
+    if (!(w.Flash)) {
+      w.Flash = Flash
+    }
+    if (!(w.FlashMessage)) {
+      w.FlashMessage = FlashMessage
+    }
   }
-  if (!(window.FlashMessage)) {
-    window.FlashMessage = FlashMessage
-  }
-}
+})(window, undefined)
 
 export default { Flash, FlashMessage }

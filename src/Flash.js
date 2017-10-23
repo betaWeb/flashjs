@@ -2,7 +2,7 @@
 
 export default class Flash {
 
-    constructor ($flash, options = {}) {
+    constructor ($flash = '.flash', options = {}) {
         if (!$flash) throw new Error ('Flash.constructor - $flash parameter is not defined')
 
         this.$flash = $flash
@@ -21,6 +21,7 @@ export default class Flash {
             appear_delay: 200,
             remove_delay: 1000,
             visible: 'is-visible',
+            flash: '.flash',
             container: '.flash-container'
         }
     }
@@ -71,7 +72,10 @@ export default class Flash {
     }
 
     _clear () {
-        if (!this.$container.hasChildNodes()) this.$container.parentNode.removeChild(this.$container)
+        if (
+            !this.$container.hasChildNodes() 
+            && this.$container.parentNode.contains(this.$container)
+        ) this.$container.parentNode.removeChild(this.$container)
     }
 
 }
