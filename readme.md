@@ -41,7 +41,7 @@ Flash.js also allows you to simply add flash behavior on existing DOM elements (
   <div class="flash-message flash-success">My awesome success message !</div>
   <div class="flash-message flash-error">My sadly sad error message !</div>
 </div
-
+```
 
 ##### JS
 ```JS
