@@ -4,7 +4,7 @@
 
   // With vanilla JavaScript
   document.addEventListener('DOMContentLoaded', function () {
-    /*window.FlashMessage.addCustomVerbs('forbidden','disabled');
+    window.FlashMessage.addCustomVerbs('forbidden','disabled');
 
     // Default types
     window.FlashMessage.success('Success', {
@@ -32,21 +32,32 @@
     window.FlashMessage.disabled('Disabled', {
       timeout: 2000,
       progress: true
-    });*/
+    });
     
     // Add flash behavior on existing DOM element
-    var f = Flash.create('.js-msg', {
-      progress: true
+    Flash.create('.js-msg');
+    
+    // Create a flash bag and attach messages into it
+    var bag = Flash.create({
+      limit: 2,
+      progress: true,
+      timeout: 8000
     });
+    bag.attach(
+      window.FlashMessage.success('Message bag #1'),
+      window.FlashMessage.info('Message bag #2'),
+      window.FlashMessage.error('Message bag #3')
+    );
+
   }, false);
 
   // OR
 
   // With a jQuery plugin
-  /*$('document').ready(function () {
+  $('document').ready(function () {
 
     $('.jq-msg').flashjs();
 
-  });*/
+  });
 
 })(window, document, jQuery)

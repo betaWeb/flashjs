@@ -11,6 +11,7 @@ export default class FlashMessage {
         }
 
         this.$_element = null
+        this.setOptions(options)
 
         if (message instanceof Element) {
             this.$_element = message
@@ -20,13 +21,13 @@ export default class FlashMessage {
             this.type = type
         }
 
-        this.options = Object.assign({}, FlashMessage.DEFAULT_OPTIONS, options)
         this.$_container = document.querySelector(this.options.container) || null
         this._c_timeout = null
         
         this.$_progress = null
-        this._progress = 0
-        this._interval = null
+        this._progress_value = 0
+        this._progress_offset = 0
+        this._progress_interval = null
 
         this._createContainer()
         this._createMessage()
@@ -77,6 +78,11 @@ export default class FlashMessage {
         })
     }
 
+    setOptions (options = {}) {
+        this.options = Object.assign({}, FlashMessage.DEFAULT_OPTIONS, options)
+        return this
+    }
+
     destroy () {
         this.options.remove_delay = 0
         this._close()
@@ -94,6 +100,7 @@ export default class FlashMessage {
     _composeMessage () {
         this.message = this.$_element.dataset.message || this.$_element.innerHTML || ''
         this.type = this.$_element.dataset.type || 'error'
+        if (this.$_element.dataset.progress !== undefined) this.setOptions({ progress: true })
         this.$_element.classList.add(`flash-${this.type}`)
     }
 
@@ -121,10 +128,11 @@ export default class FlashMessage {
     }
 
     _behavior () {
-        window.setTimeout(() => {
-            this.$_element.classList.add(this.options.classes.visible)
-            this._run()
-        }, this.options.appear_delay)
+        this._run()
+        window.setTimeout(
+            () => this.$_element.classList.add(this.options.classes.visible), 
+            this.options.appear_delay
+        )
     }
 
     _run () {
@@ -159,9 +167,9 @@ export default class FlashMessage {
 
 
     _bindEvents () {
-        this._bindEvent('mouseover', () => this._stop())
-        this._bindEvent('mouseleave', () => this._run())
-        this._bindEvent('click', () => this._close())
+        this._bindEvent('mouseover', _ => this._stop())
+        this._bindEvent('mouseleave', _ => this._run())
+        this._bindEvent('click', _ => this._close())
         
     }
 
@@ -176,9 +184,9 @@ export default class FlashMessage {
     }
 
     _unbindEvents () {
-        this._unbindEvent('mouseover', () => this._stop())
-        this._unbindEvent('mouseleave', () => this._run())
-        this._unbindEvent('click', () => this._close())
+        this._unbindEvent('mouseover', _ => this._stop())
+        this._unbindEvent('mouseleave', _ => this._run())
+        this._unbindEvent('click', _ => this._close())
     }
 
     _unbindEvent (event_name, callback) {
@@ -206,25 +214,28 @@ export default class FlashMessage {
 
     _startProgress () {
         if (!this._hasProgress()) return
+        if (!this.$_progress) this._progressBar()
         this._stopProgress ()
-        let _progress_ratio = 0
+        this._progress_offset = 0
         this.$_progress.classList.remove(this.options.classes.progress_hidden)
-        this._interval = window.setInterval(() => {
-            this.$_progress.style.width = `${this._progress}%`
-            this._progress = ((_progress_ratio * 100) / this.options.timeout).toFixed(2)
-            _progress_ratio += 16
-            if (this._progress >= 100)
-                this._stopProgress()
-            }, 16)
+        this._progress_interval = window.setInterval(() => this._setProgress(), 16)
+    }
+
+    _setProgress () {
+        this.$_progress.style.width = `${this._progress_value}%`
+        this._progress_value = ((this._progress_offset * 100) / this.options.timeout).toFixed(2)
+        this._progress_offset += 16
+        if (this._progress_value >= 100)
+            this._stopProgress()
     }
 
 
     _stopProgress () {
-        if (!this._hasProgress()) return
+        if (!this._hasProgress() || !this.$_progress) return
         this.$_progress.classList.add('is-hidden')
-        window.clearInterval(this._interval)
-        this._interval = null
-        this._progress = null
+        window.clearInterval(this._progress_interval)
+        this._progress_interval = null
+        this._progress_value = null
     }
 
 }
