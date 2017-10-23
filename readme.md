@@ -87,9 +87,8 @@ $('document').ready(function () {
 
 #### Options :
 
-[Flash.js](https://betaweb.github.io/flashjs/) takes an option object in parameter as following :
+[Flash.js](https://betaweb.github.io/flashjs/) can optionnaly takes an object in parameter, as following :
 ```JS
-
 window.FlashMessage.info('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', {
   timeout: 8000, // Flash message timeout
   appear_delay: 200, // Delay before flash message appears
