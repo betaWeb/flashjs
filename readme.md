@@ -1,11 +1,10 @@
 # FlashJS
-### A JavaScript plugin to create flash messages (with jQuery)
 Flash.js is a simple JavaScript library allowing you to create and handle HTML flash messages.
 
 ### Installation :
 You only have to include the flash.js script into your HTML. That's it !
 
-```JS
+```HTML
 <script src="/path/to/flashjs.min.js"></script>
 
 ```
