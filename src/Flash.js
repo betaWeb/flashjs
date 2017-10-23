@@ -3,7 +3,7 @@
 export default class Flash {
 
     constructor (selector = null, options = {}) {
-        if (selector.constructor === Object) {
+        if (selector && selector.constructor === Object) {
             options = selector
             selector = null
         }
