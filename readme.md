@@ -34,6 +34,7 @@ new window.FlashMessage('This is a successs flash message !', 'success');
 ```
 
 However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with the jQuery plugin (by adding behavior on existing DOM elements) :
+#### HTML
 ```HTML
 <div class="flash-container">
   <div class="flash-message flash-success">My awesome success message !</div>
@@ -41,9 +42,14 @@ However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with 
 </div>
 ```
 
+#### JS (jQuery)
 ```JS
-$('.flash-message').flashjs({
-  timeout: 5000
+$('document').ready(function () {
+
+  $('.flash-message').flashjs({
+    timeout: 5000
+  });
+
 });
 ```
 
