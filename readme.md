@@ -90,10 +90,11 @@ $('document').ready(function () {
 [Flash.js](https://betaweb.github.io/flashjs/) can optionnaly takes an object in parameter, as following :
 ```JS
 window.FlashMessage.info('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', {
+  progress: true, // displays a progress bar at the bottom of the flash message
+  interactive: true, // Define flash message actions (pause on mouseover, close on click) 
   timeout: 8000, // Flash message timeout
   appear_delay: 200, // Delay before flash message appears
   remove_delay: 600, // Flash message removal timeout
-  progress: true, // displays a progress bar at the bottom of the flash message
   container: '.flash-container', // Flash messages container element selector
   classes: {
       container: 'flash-container', // Custom container css class

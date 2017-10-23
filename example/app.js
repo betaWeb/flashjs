@@ -9,11 +9,13 @@
     // Default types
     window.FlashMessage.success('Success', {
       timeout: 8000,
+      interactive: false,
       progress: true
     });
     window.FlashMessage.warning('Warning', {
       timeout: 5000,
-      progress: true
+      progress: true,
+      onClick: () => alert('Click on warning message !')
     });
     window.FlashMessage.error('Error', {
       timeout: 7000,
@@ -38,14 +40,10 @@
     Flash.create('.js-msg');
     
     // Create a flash bag and attach messages into it
-    var bag = Flash.create({
-      limit: 2,
-      progress: true,
-      timeout: 8000
-    });
+    var bag = Flash.create({ limit: 2 });
     bag.attach(
       window.FlashMessage.success('Message bag #1'),
-      window.FlashMessage.info('Message bag #2'),
+      window.FlashMessage.info('Message bag #2', { progress: true }),
       window.FlashMessage.error('Message bag #3')
     );
 

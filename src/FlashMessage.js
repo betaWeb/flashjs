@@ -36,6 +36,7 @@ export default class FlashMessage {
     static get DEFAULT_OPTIONS () {
         return {
             progress: false,
+            interactive: true,
             timeout: 8000,
             appear_delay: 200,
             remove_delay: 600,
@@ -46,7 +47,10 @@ export default class FlashMessage {
                 flash: 'flash-message',
                 progress: 'flash-progress',
                 progress_hidden: 'is-hidden'
-            }
+            },
+            onShow: null,
+            onClick: null,
+            onClose: null
         }
     }
 
@@ -120,7 +124,7 @@ export default class FlashMessage {
             this.options.timeout = parseInt(this.$_element.dataset.timeout, 10)
 
         this._behavior()
-        this._bindEvents()
+        if (this.options.interactive === true) this._bindEvents()
     }
 
     _append () {
@@ -153,7 +157,7 @@ export default class FlashMessage {
         this._stopProgress()
         window.setTimeout(() => {
             this.$_container.removeChild(this.$_element)
-            this._unbindEvents()
+            if (this.options.interactive === true) this._unbindEvents()
             this._clear()
         }, this.options.remove_delay)
     }
@@ -215,7 +219,7 @@ export default class FlashMessage {
     _startProgress () {
         if (!this._hasProgress()) return
         if (!this.$_progress) this._progressBar()
-        this._stopProgress ()
+        this._stopProgress()
         this._progress_offset = 0
         this.$_progress.classList.remove(this.options.classes.progress_hidden)
         this._progress_interval = window.setInterval(() => this._setProgress(), 16)
@@ -235,7 +239,7 @@ export default class FlashMessage {
         this.$_progress.classList.add('is-hidden')
         window.clearInterval(this._progress_interval)
         this._progress_interval = null
-        this._progress_value = null
+        this._progress_value = 0
     }
 
 }
