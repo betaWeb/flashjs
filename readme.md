@@ -15,14 +15,14 @@ You only have to include the [flash.js](https://betaweb.github.io/flashjs/) scri
 #### Vanilla JS
 Use [flash.js](https://betaweb.github.io/flashjs/) is very easy. To display a success flash message, you just have to add this line below.
 ```JS
-window.Flashjs.success('This is a successs flash message !');
+window.FlashMessage.success('This is a successs flash message !');
 ```
 By default, four verbs are availables : `success`, `warning`, `error` and `info`.
 
 You can add custom verbs with by call the static method addCustomTypes on the FlashMessage class :
 ```JS
 window.FlashMessage.addCustomTypes('forbidden', 'example', 'custom');
-window.Flashjs.forbidden('My custom forbidden flash message !');
+window.FlashMessage.forbidden('My custom forbidden flash message !');
 ```
 In the example above, three custom verbs have been added. As you can see, you can now use thses verbs !
 
