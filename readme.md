@@ -21,7 +21,7 @@ By default, four verbs are availables : `success`, `warning`, `error` and `info`
 
 You can add custom verbs with by call the static method addCustomTypes on the FlashMessage class :
 ```JS
-window.FlashMessage.addCustomTypes('forbidden', 'example', 'custom');
+window.FlashMessage.addCustomVerbs('forbidden', 'example', 'custom');
 window.FlashMessage.forbidden('My custom forbidden flash message !');
 ```
 In the example above, three custom verbs have been added. As you can see, you can now use thses verbs !
@@ -60,7 +60,8 @@ However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with 
   <div class="flash-message flash-error">My sadly sad error message with the Flash.js jQuery plugin !</div>
 </div>
 
-<!-- Don't forget to add flash.js jQuery plugin script ! -->
+<!-- Don't forget to add flash.js jQuery plugin script right after the flash.js library ! -->
+<script src="path/to/flashjs.min.js"></script>
 <script src="path/to/flash.jquery.min.js"></script>
 ```
 
