@@ -38,7 +38,6 @@ export default class FlashMessage {
             timeout: 8000,
             appear_delay: 200,
             remove_delay: 600,
-            prefix: '.flash',
             container: '.flash-container',
             classes: {
                 container: 'flash-container',
@@ -72,9 +71,9 @@ export default class FlashMessage {
 
     static addCustomVerbs (...verbs) {
         if (!verbs || !verbs.length) return
-        verbs.forEach(type => {
-            if (!FlashMessage[type])
-                FlashMessage[type] = (message, options = {}) => new FlashMessage(message, type, options)
+        verbs.forEach(verb => {
+            if (!FlashMessage[verb])
+                FlashMessage[verb] = (message, options = {}) => new FlashMessage(message, verb, options)
         })
     }
 
@@ -95,6 +94,7 @@ export default class FlashMessage {
     _composeMessage () {
         this.message = this.$_element.dataset.message || this.$_element.innerHTML || ''
         this.type = this.$_element.dataset.type || 'error'
+        this.$_element.classList.add(`flash-${this.type}`)
     }
 
     _createMessage () {

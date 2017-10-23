@@ -28,26 +28,33 @@ In the example above, three custom verbs have been added. As you can see, you ca
 
 <br>
 
-You can also create a flash message by instanciating the FlashMessage class :
+You can also create a flash message by instanciating the FlashMessage class or by using the static method `create` :
 
 ```JS
 new window.FlashMessage('This is a successs flash message !', 'success');
+
+// OR
+
+window.FlashMessage.create('Flash.js is awesome !', 'success')
 ```
 
 Flash.js also allows you to simply add flash behavior on existing DOM elements (especially if HTML is rendered server-side) :
 ##### HTML
 ```HTML
 <div class="flash-container">
-  <div class="flash-message flash-success">My awesome success message !</div>
-  <div class="flash-message flash-error">My sadly sad error message !</div>
+  <div class="flash-message" data-type="success" data-timeout="8000">My awesome success message !</div>
+  <div class="flash-message" data-type="error" data-timeout="8000">My sadly sad error message !</div>
 </div
 ```
 
 ##### JS
 ```JS
 new window.Flash('.flash-message');
-```
 
+// OR
+
+window.Flash.create('.flash-message');
+```
 
 <br>
 
@@ -73,6 +80,29 @@ $('document').ready(function () {
     timeout: 5000
   });
 
+});
+```
+
+<br>
+
+#### Options :
+
+[Flash.js](https://betaweb.github.io/flashjs/) takes an option object in parameter as following :
+```JS
+
+window.FlashMessage.info('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', {
+  timeout: 8000, // Flash message timeout
+  appear_delay: 200, // Delay before flash message appears
+  remove_delay: 600, // Flash message removal timeout
+  progress: true, // displays a progress bar at the bottom of the flash message
+  container: '.flash-container', // Flash messages container element selector
+  classes: {
+      container: 'flash-container', // Custom container css class
+      flash: 'flash-message', // Flash message element css class
+      visible: 'is-visible', // Flash message element css visible class
+      progress: 'flash-progress', // Flash message progress bar element css class
+      progress_hidden: 'is-hidden' // Flash message progress bar element hidden css class
+  }
 });
 ```
 
