@@ -12,6 +12,7 @@ You only have to include the [flash.js](https://betaweb.github.io/flashjs/) scri
 <br>
 
 ### Getting started :
+#### Vanilla JS
 Use [flash.js](https://betaweb.github.io/flashjs/) is very easy. To display a success flash message, you just have to add this line below.
 ```JS
 window.Flashjs.success('This is a successs flash message !');
@@ -35,6 +36,7 @@ new window.FlashMessage('This is a successs flash message !', 'success');
 
 <br>
 
+#### jQuery
 However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with the jQuery plugin (by adding behavior on existing DOM elements) :
 ##### HTML
 ```HTML
@@ -44,7 +46,7 @@ However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with 
 </div>
 ```
 
-##### JS (jQuery)
+##### JS
 ```JS
 $('document').ready(function () {
 
