@@ -19,7 +19,7 @@ window.FlashMessage.success('This is a successs flash message !');
 ```
 By default, four verbs are availables : `success`, `warning`, `error` and `info`.
 
-You can add custom verbs with by call the static method addCustomTypes on the FlashMessage class :
+You can add custom verbs with by call the static method [`addCustomVerbs`](https://github.com/betaWeb/flashjs/blob/master/src/FlashMessage.js#L33) on the FlashMessage class :
 ```JS
 window.FlashMessage.addCustomVerbs('forbidden', 'example', 'custom');
 window.FlashMessage.forbidden('My custom forbidden flash message !');
