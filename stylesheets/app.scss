@@ -319,6 +319,28 @@ article{
 			line-height: 1.4;
 			cursor: pointer;
 
+			.flash-progress {
+				position: absolute;
+				right: 0;
+				top: auto;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 3px;
+				opacity: 1;
+				background-color: rgba($black, 0.15);
+				transition: opacity .1s;
+				
+				&.is-hidden {
+					opacity: 0;
+				}
+
+				&.flash-progress-top {
+					top: 0;
+					bottom: auto;
+				}
+			}
+
 			&:before {
 					position: absolute;
 					content: '';
@@ -349,6 +371,7 @@ article{
 			}
 
 			&.flash-success {
+					.flash-progress { background-color: rgba($success, .15); }
 					&:before{ background-color: $success; }
 					&:after{
 						color: rgba($success, .5);
@@ -356,6 +379,7 @@ article{
 					}
 			}
 			&.flash-warning {
+					.flash-progress { background-color: rgba($warning, .15); }
 					&:before{ background-color: $warning; }
 					&:after{
 						color: rgba($warning, .5);
@@ -363,6 +387,7 @@ article{
 					}
 			} 
 			&.flash-danger, &.flash-error {
+					.flash-progress { background-color: rgba($error, .15); }
 					&:before{ background-color: $error; }
 					&:after{
 						color: rgba($error, .5);
@@ -370,6 +395,7 @@ article{
 					}
 			}
 			&.flash-info {
+					.flash-progress { background-color: rgba($info, .15); }
 					&:before{ background-color: $info; }
 					&:after{
 						color: rgba($info, .5);
@@ -377,6 +403,7 @@ article{
 					}
 			}
 			&.flash-bug {
+					.flash-progress { background-color: rgba($purple, .15); }
 					&:before{ background-color: $purple; }
 					&:after{
 						color: rgba($purple, .5);
@@ -384,6 +411,7 @@ article{
 					}
 			}
 			&.flash-disabled {
+					.flash-progress { background-color: rgba($disabled, .15); }
 					&:before{ background-color: $disabled; }
 					&:after{
 						color: rgba($disabled, .5);

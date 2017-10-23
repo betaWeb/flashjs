@@ -7,7 +7,9 @@ var app = function() {
 				var $el = $(this);
 				var type = $el.data('flash');
 				var message = $el.data('message');
-				var flash = new window.FlashMessage(message, type);
+				var flash = new window.FlashMessage(message, type, {
+					progress: true
+				});
 			});
 		});
 	};
