@@ -1,7 +1,6 @@
-import'./polyfills'
-import Flash from './Flash'
-import FlashMessage from './FlashMessage'
-import './flash.jquery'
+import'./src/polyfills'
+import Flash from './src/Flash'
+import FlashMessage from './src/FlashMessage'
 
 (function (w) {
   if (w !== undefined) {

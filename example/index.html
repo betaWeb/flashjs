@@ -11,16 +11,21 @@
 <body>
   <h1>FlashJS examples</h1>
 
+  <!-- Flash messages container -->
   <div class="flash-container">
-    <div class="flash-message flash-success">My awesome success message !</div>
-    <div class="flash-message flash-error">My sadly sad error message !</div>
+
+    <!-- With vanilla JS -->
+    <div class="flash-message flash-success js-msg">My awesome success message !</div>
+    <div class="flash-message flash-error js-msg">My sadly sad error message !</div>
+
+    <!-- With jQuery -->
+    <div class="flash-message flash-success jq-msg">My awesome success message with jQuery plugin !</div>
+    <div class="flash-message flash-error jq-msg">My sadly sad error message with jQuery plugin !</div>
   </div>
 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="../dist/flash.min.js"></script>
+  <script src="../dist/flash.jquery.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

@@ -1,9 +1,10 @@
-import Flash from './Flash'
-import jQuery from 'jquery'
-
 ;(function($, window, document, undefined) {
 
-	"use strict";
+    "use strict";
+
+    if (!window.Flash) {
+        throw new Error("[Err] flash.jquery.js - Cannot find Flash.js. Make sure you have include this on your HTML.");
+    }
 
     var pluginName = "flashjs";
 
@@ -16,7 +17,7 @@ import jQuery from 'jquery'
 
     $.extend(Plugin.prototype, {
         init: (elm) => {
-            let flash = new Flash(elm)
+            let flash = new window.Flash(elm)
         }
     });
 

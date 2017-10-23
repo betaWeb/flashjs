@@ -17,7 +17,7 @@
     window.FlashMessage.disabled('Disabled');
     
     // Add flash behavior on existing DOM element
-    var f = new Flash('.flash-message');
+    var f = new Flash('.js-msg');
   }, false);
 
   // OR
@@ -25,7 +25,7 @@
   // With a jQuery plugin
   $('document').ready(function () {
 
-    $('.flash-message').flashjs();
+    $('.jq-msg').flashjs();
 
   });
 

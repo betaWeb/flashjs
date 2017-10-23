@@ -6,7 +6,7 @@ You can [try it yourself](https://betaweb.github.io/flashjs/#examples) here.
 You only have to include the [flash.js](https://betaweb.github.io/flashjs/) script into your HTML. That's it !
 
 ```HTML
-<script src="/path/to/flashjs.min.js"></script>
+<script src="path/to/flashjs.min.js"></script>
 
 ```
 <br>
@@ -34,16 +34,34 @@ You can also create a flash message by instanciating the FlashMessage class :
 new window.FlashMessage('This is a successs flash message !', 'success');
 ```
 
-<br>
-
-#### jQuery
-However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with the jQuery plugin (by adding behavior on existing DOM elements) :
+Flash.js also allows you to simply add flash behavior on existing DOM elements (especially if HTML is rendered server-side) :
 ##### HTML
 ```HTML
 <div class="flash-container">
   <div class="flash-message flash-success">My awesome success message !</div>
   <div class="flash-message flash-error">My sadly sad error message !</div>
+</div
+
+
+##### JS
+```JS
+new window.Flash('.flash-message');
+```
+
+
+<br>
+
+#### jQuery
+However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with the jQuery plugin (by adding behavior on existing DOM elements, when HTML is rendered server-side for example) :
+##### HTML
+```HTML
+<div class="flash-container">
+  <div class="flash-message flash-success">My awesome success message with the Flash.js jQuery plugin !</div>
+  <div class="flash-message flash-error">My sadly sad error message with the Flash.js jQuery plugin !</div>
 </div>
+
+<!-- Don't forget to add flash.js jQuery plugin script ! -->
+<script src="path/to/flash.jquery.min.js"></script>
 ```
 
 ##### JS

@@ -10,14 +10,15 @@ const externals = {
 let config = {
 
   entry: {
-    app: ['./src/index.js']
+    'flash': './index.js',
+    'flash.jquery': './plugins/flash.jquery.js'
   },
 
   watch: true,
 
   output: {
     path: path.resolve('./dist'),
-    filename: 'flash.min.js'
+    filename: '[name].min.js'
   },
 
   devtool: false,
