@@ -111,7 +111,7 @@ header {
       font-size: 14px;
       float: left; }
       header div.right-menu a.menu-link.is-active {
-        color: rgba(44, 52, 51, 0.95) !important; }
+        color: rgba(44, 52, 51, 0.75); }
     header div.right-menu a:hover {
       color: rgba(44, 52, 51, 0.5) !important; }
   header div.mobile-menu-trigger {

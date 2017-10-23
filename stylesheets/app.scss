@@ -114,7 +114,7 @@ header{
 				font-size: 14px;
 				float: left;
 
-				&.is-active{ color: $main !important; }
+				&.is-active{ color: rgba($dark, .75); }
 			}
 
 			&:hover{ color: rgba($dark, .5) !important; }

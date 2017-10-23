@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.min.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/inputTags.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/app.css" media="screen">
   </head>
   <body>
@@ -40,15 +39,15 @@
             <br>
 
             <h2 class="font center header-block"><a id="Installation" class="anchor" href="#Installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
-            <p>Make sure you include the script after the jQuery library.</p>
-            <p class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;<br>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/flashjs.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></p>
+            <p>You only have to include the <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> script into your HTML. That's it !</p>
+            <p class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/flashjs.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></p>
         </article>
 
         <article id="getting-started">
             <h2 class="font center header-block"><a class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
-            <p>Use <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> is very easy. To display a success flash message, you just have to add this line below and that's it !</p>
+            <p>Use <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> is very easy. To display a success flash message, you just have to add this line below.</p>
             <div class="highlight highlight-js"><pre><span class="pl-c1">window</span>.<span class="pl-smi">Flashjs</span>.<span class="pl-en">success</span>(<span class="pl-s"><span class="pl-pds">'</span>This is a successs flash message !<span class="pl-pds">'</span></span>);</pre></div>
-            <p>Four verbs are availables :
+            <p>By default, four verbs are availables :
               <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">success</span>
               <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">warning</span>
               <br>&nbsp;&nbsp;&nbsp;-&nbsp;<span class="pl-smi color">error</span>
@@ -64,7 +63,7 @@
 
         <article id="examples">
             <h2 class="font center header-block"><a class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try it !</h2>
-            <p>Click on the button of your choice to display flash message with <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> :</p>
+            <p>Click on the button of your choice to display a flash message with <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> :</p>
             <p id="examples-1" class="btns-examples">
               <button data-flash="success" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-success">Success flash</button>
               <button data-flash="warning" data-message="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus." class="btn btn-warning">Warning flash</button>
