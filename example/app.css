@@ -28,6 +28,18 @@
             box-shadow: 2px 2px 33px 8px rgba(0, 0, 0, 0.1);
     line-height: 1.4;
     cursor: pointer; }
+    .flash-container .flash-message .flash-progress {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.15);
+      transition: opacity .1s; }
+      .flash-container .flash-message .flash-progress.is-hidden {
+        opacity: 0; }
     .flash-container .flash-message:before {
       position: absolute;
       content: '';
