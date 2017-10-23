@@ -30,7 +30,7 @@ export default class FlashMessage {
         return new FlashMessage(message, 'info', options)
     }
 
-    static addCustomTypes (...custom_types) {
+    static addCustomVerbs (...custom_types) {
         if (!custom_types || !custom_types.length) return
         custom_types.forEach(type => {
             if (!FlashMessage[type])

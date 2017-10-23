@@ -1,8 +1,9 @@
 # FlashJS
 Flash.js is a simple JavaScript library allowing you to create and handle HTML flash messages.
+You can [try it yourself](https://betaweb.github.io/flashjs/#examples) here.
 
 ### Installation :
-You only have to include the flash.js script into your HTML. That's it !
+You only have to include the [flash.js](https://betaweb.github.io/flashjs/) script into your HTML. That's it !
 
 ```HTML
 <script src="/path/to/flashjs.min.js"></script>
@@ -11,11 +12,11 @@ You only have to include the flash.js script into your HTML. That's it !
 <br>
 
 ### Getting started :
-Use flash.js is very easy. To display a success flash message, you just have to add this line below.
+Use [flash.js](https://betaweb.github.io/flashjs/) is very easy. To display a success flash message, you just have to add this line below.
 ```JS
 window.Flashjs.success('This is a successs flash message !');
 ```
-By default, four verbs are availables : `success`, `warning`, `error` and `info`
+By default, four verbs are availables : `success`, `warning`, `error` and `info`.
 
 You can add custom verbs with by call the static method addCustomTypes on the FlashMessage class :
 ```JS
@@ -30,6 +31,20 @@ You can also create a flash message by instanciating the FlashMessage class :
 
 ```JS
 new window.FlashMessage('This is a successs flash message !', 'success');
+```
+
+However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with the jQuery plugin (by adding behavior on existing DOM elements) :
+```HTML
+<div class="flash-container">
+  <div class="flash-message flash-success">My awesome success message !</div>
+  <div class="flash-message flash-error">My sadly sad error message !</div>
+</div>
+```
+
+```JS
+$('.flash-message').flashjs({
+  timeout: 5000
+});
 ```
 
 <br>

@@ -2,7 +2,7 @@
 
 export default class Flash {
 
-    constructor ($flash = '.flash', options = {}) {
+    constructor ($flash, options = {}) {
         if (!$flash) throw new Error ('Flash.constructor - $flash parameter is not defined')
 
         this.$flash = $flash
@@ -10,9 +10,8 @@ export default class Flash {
         this.c_timeout = null
         this.$container = document.querySelector(this.options.container) || null
 
-        this._setInstance()
-        this._build()
-        this._initEvents()
+        this._setElement()
+        this._process()
     }
 
     static get DEFAULT_OPTIONS () {
@@ -26,10 +25,22 @@ export default class Flash {
         }
     }
 
-    _setInstance () {
+    _setElement () {
         if (this.$flash instanceof Element) return
-        if (this.$flash.constructor === String) this.$flash = document.querySelector(this.$flash)
-        if (!this.$flash || !this.$flash.length) throw new Error ('$flash parameter must be an instance of DOM Element or a valid CSS selector')
+        if (this.$flash.constructor === String) this.$flash = document.querySelectorAll(this.$flash) || null
+        if (!this.$flash) throw new Error ('$flash parameter must be an instance of DOM Element or NodeList, or a valid CSS selector')
+    }
+
+    _process () {
+        if (
+            Array.isArray(this.$flash) 
+            || this.$flash.constructor === NodeList
+        ) {
+            this.$flash.forEach(item => new Flash(item, this.options))
+        } else {
+            this._build()
+            this._bindEvents()
+        }
     }
 
     _build () {
@@ -50,23 +61,46 @@ export default class Flash {
         }
     }
 
-    _initEvents () {
-        this.$flash.addEventListener('mouseover', () => this._stop(), false)
-        this.$flash.addEventListener('mouseleave', () => this._run(), false)
-        this.$flash.addEventListener('click', () => this._close(), false)
+    _bindEvents () {
+        this._bindEvent('mouseover', () => this._stop())
+        this._bindEvent('mouseleave', () => this._run())
+        this._bindEvent('click', () => this._close())
     }
 
-    _clearEvents () {
-        this.$flash.removeEventListener('mouseover', () => this._stop(), false)
-        this.$flash.removeEventListener('mouseleave', () => this._run(), false)
-        this.$flash.removeEventListener('click', () => this._close(), false)
+    _bindEvent (event_name, callback) {
+        try {
+            if (!this.$flash.addEventListener) this.$flash.attachEvent(`on${this._getEventName(event_name)}`, callback)
+            else this.$flash.addEventListener(event_name, callback, false)
+        } catch (err) {
+            throw new Error(`Flash._bindEvent - Cannot add event on element - ${err}`)
+        }
+        
+    }
+
+    _unbindEvents () {
+        this._unbindEvent('mouseover', () => this._stop())
+        this._unbindEvent('mouseleave', () => this._run())
+        this._unbindEvent('click', () => this._close())
+    }
+
+    _unbindEvent (event_name, callback) {
+        try {
+            if (!this.$flash.removeEventListener) this.$flash.detachEvent(`on${this._getEventName(event_name)}`, callback)
+            else this.$flash.removeEventListener(event_name, callback, false)
+        } catch (err) {
+            throw new Error(`Flash._unbindEvent - Cannot remove event on element - ${err}`)
+        }
+    }
+
+    _getEventName (event_name) {
+        return event_name.charAt(0).toUpperCase() + event_name.substr(1)
     }
 
     _close () {
         this.$flash.classList.remove(this.options.visible)
         window.setTimeout(() => {
             this.$container.removeChild(this.$flash)
-            this._clearEvents()
+            this._unbindEvents()
             this._clear()
         }, this.options.remove_delay)
     }

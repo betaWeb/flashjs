@@ -23,7 +23,7 @@ import jQuery from 'jquery'
     $.fn[pluginName] = function (options) {
         return this.each(() => {
             if (!$.data(this, "plugin_" + pluginName))
-                $.data(this, "plugin_" + pluginName, new Plugin(this, options))
+                $.data(this, "plugin_" + pluginName, new Plugin(this.toArray(), options))
         })
     }
 
