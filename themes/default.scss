@@ -1,0 +1,153 @@
+/* FLASHJS - DEFAULT THEME */
+
+// Colors
+
+// Theme
+.flash-container {
+	position: fixed;
+	top: 75px;
+	right: 15px;
+	z-index: 1000;
+	max-width: 25%;
+
+	.flash-message {
+			position: relative;
+			opacity: 0;
+			min-height: 28px;
+			transform: translateX(-20px);
+			transition: all .5s;
+			background-color: $white;
+			color: $dark;
+			border-radius: 0;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			margin-bottom: 10px;
+			padding: 5px 35px 5px 20px;
+			box-shadow: 2px 2px 33px 8px rgba($black, 0.1);
+			line-height: 1.4;
+			cursor: pointer;
+
+			.flash-progress {
+				position: absolute;
+				right: 0;
+				top: auto;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 3px;
+				opacity: 1;
+				background-color: rgba($black, 0.15);
+				transition: opacity .1s;
+				
+				&.is-hidden {
+					opacity: 0;
+				}
+
+				&.flash-progress-top {
+					top: 0;
+					bottom: auto;
+				}
+			}
+
+			&:before {
+					position: absolute;
+					content: '';
+					width: 7px;
+					height: 100%;
+					top: 0;
+					bottom: 0;
+					left: -7px;
+					background-color: transparent;
+					border-top-left-radius: 4px;
+					border-bottom-left-radius: 4px;
+			}
+
+			&:after {
+					position: absolute;
+					content: '';
+					font-family: 'fontAwesome';
+					top: 5px;
+					right: 8px;
+					text-align: center;
+					vertical-align: middle;
+					color: $grey;
+			}
+
+			&.is-visible {
+					opacity: 1;
+					transform: translateX(0);
+			}
+
+			&.flash-success {
+					.flash-progress { background-color: rgba($success, .15); }
+					&:before{ background-color: $success; }
+					&:after{
+						color: rgba($success, .5);
+						content: '\f058';
+					}
+			}
+			&.flash-warning {
+					.flash-progress { background-color: rgba($warning, .15); }
+					&:before{ background-color: $warning; }
+					&:after{
+						color: rgba($warning, .5);
+						content: '\f071';
+					}
+			} 
+			&.flash-danger, &.flash-error {
+					.flash-progress { background-color: rgba($error, .15); }
+					&:before{ background-color: $error; }
+					&:after{
+						color: rgba($error, .5);
+						content: '\f06a';
+					}
+			}
+			&.flash-info {
+					.flash-progress { background-color: rgba($info, .15); }
+					&:before{ background-color: $info; }
+					&:after{
+						color: rgba($info, .5);
+						content: '\f05a';
+					}
+			}
+			&.flash-bug {
+					.flash-progress { background-color: rgba($purple, .15); }
+					&:before{ background-color: $purple; }
+					&:after{
+						color: rgba($purple, .5);
+						content: '\f188';
+					}
+			}
+			&.flash-disabled {
+					.flash-progress { background-color: rgba($disabled, .15); }
+					&:before{ background-color: $disabled; }
+					&:after{
+						color: rgba($disabled, .5);
+						content: '\f05e';
+					}
+			}
+			&.flash-default {
+				padding-right: 20px;
+			}
+	}
+}
+
+@media all and (max-width: 1280px) {
+	.flash-container {
+		max-width: 33.334%;
+	}
+}
+
+@media all and (max-width: 768px) {
+	.flash-container {
+		max-width: 50%;
+	}
+}
+
+@media all and (max-width: 480px) {
+	.flash-container {
+		right: 10px;
+		left: 10px;
+		max-width: 100%;
+	}
+}
