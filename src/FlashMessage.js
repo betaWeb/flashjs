@@ -88,7 +88,7 @@ export default class FlashMessage {
     }
 
     destroy () {
-        this.options.remove_delay = 0
+        // this.options.remove_delay = 0
         this._close()
     }
     
@@ -116,7 +116,17 @@ export default class FlashMessage {
             this.$_element.setAttribute('data-message', this.message)
             this.$_element.innerHTML = this.message
 
+            if (this.options.thumb) {
+                let thumb = document.createElement('img')
+                thumb.classList.add('thumb')
+                thumb.src = this.options.thumb
+                this.$_element.classList.add('has-thumb')
+                this.$_element.appendChild(thumb)
+            }
+
             this._append()
+        } else {
+            if (this.$_element.querySelector('.thumb')) this.$_element.classList.add('has-thumb')
         }
         
         if (this._hasProgress()) this._progressBar()
@@ -124,7 +134,7 @@ export default class FlashMessage {
             this.options.timeout = parseInt(this.$_element.dataset.timeout, 10)
 
         this._behavior()
-        if (this.options.interactive === true) this._bindEvents()
+        if (this._isInteractive() === true) this._bindEvents()
     }
 
     _append () {
@@ -153,13 +163,13 @@ export default class FlashMessage {
     }
 
     _close () {
-        this.$_element.classList.remove(this.options.classes.visible)
         this._stopProgress()
-        window.setTimeout(() => {
+        if (this._isInteractive()) this._unbindEvents()
+        this.$_element.classList.remove(this.options.classes.visible)
+        this.$_element.addEventListener('transitionend', () => {
             this.$_container.removeChild(this.$_element)
-            if (this.options.interactive === true) this._unbindEvents()
             this._clear()
-        }, this.options.remove_delay)
+        })
     }
 
     _clear () {
@@ -200,6 +210,10 @@ export default class FlashMessage {
         } catch (err) {
             throw new Error(`FlashMessage._unbindEvent - Cannot remove event on element - ${err}`)
         }
+    }
+
+    _isInteractive () {
+        return Boolean(this.options.interactive === true)
     }
     
     _getCapitalizedEventName (event_name) {
