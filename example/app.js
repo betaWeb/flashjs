@@ -55,7 +55,7 @@
         {
           timeout: this.dataset.timeout,
           progress: true,
-          thumb: 'https://pbs.twimg.com/profile_images/659436766420672512/-pS2Bgfl.jpg'
+          // thumb: 'https://pbs.twimg.com/profile_images/659436766420672512/-pS2Bgfl.jpg'
         }
       )
     });

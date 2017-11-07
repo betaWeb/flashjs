@@ -96,6 +96,7 @@ window.FlashMessage.info('Lorem ipsum dolor sit amet, consectetur adipiscing eli
   appear_delay: 200, // Delay before flash message appears
   remove_delay: 600, // Flash message removal timeout
   container: '.flash-container', // Flash messages container element selector
+  theme: 'default', // CSS theme (availables: default, dark)
   classes: {
       container: 'flash-container', // Custom container css class
       flash: 'flash-message', // Flash message element css class

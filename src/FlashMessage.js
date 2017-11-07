@@ -48,7 +48,7 @@ export default class FlashMessage {
                 progress: 'flash-progress',
                 progress_hidden: 'is-hidden'
             },
-            theme: '',
+            theme: 'default',
             onShow: null,
             onClick: null,
             onClose: null,
@@ -89,7 +89,6 @@ export default class FlashMessage {
     }
 
     destroy () {
-        // this.options.remove_delay = 0
         this._close()
     }
     
@@ -260,7 +259,7 @@ export default class FlashMessage {
     }
 
     _setTheme () {
-        if (this.options.theme.length)
+        if (this.options.theme.length && this.options.theme !== 'default')
             this.$_element.classList.add(`${this.options.theme}-theme`)
     }
 
