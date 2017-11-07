@@ -266,6 +266,34 @@ article {
   background-color: #2C3433 !important;
   border: none; }
 
+.main-content .table {
+  display: table;
+  width: 100%; }
+  .main-content .table th:first-of-type, .main-content .table td:first-of-type {
+    text-align: right; }
+  .main-content .table tbody td:first-of-type {
+    font-family: 'monospace';
+    font-size: 14px; }
+  .main-content .table .config-title {
+    background-color: rgba(44, 52, 51, 0.8);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center !important; }
+  .main-content .table thead tr th:not(.config-title) {
+    font-size: 20px; }
+  .main-content .table th, .main-content .table td {
+    text-align: left;
+    padding: 0.7rem 1.4rem; }
+  .main-content .table td {
+    font-size: 16px; }
+  .main-content .table tbody tr:nth-child(odd) {
+    background-color: #f3f3f3; }
+  .main-content .table p {
+    margin: 0; }
+  .main-content .table td > p > small {
+    color: #9e9e9e;
+    font-style: italic; }
+
 /* FLASH MESSAGES */
 .flash-container {
   position: fixed;

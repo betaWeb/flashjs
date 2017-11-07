@@ -21,8 +21,8 @@
         <a href="#home" class="menu-link">Presentation</a>
         <a href="#Installation" class="menu-link">Installation</a>
         <a href="#getting-started" class="menu-link">Getting started</a>
+        <a href="#options" class="menu-link">Configuration</a>
         <a href="#examples" class="menu-link">Examples</a>
-        <!-- <a href="#doc" class="menu-link">Documentation</a> -->
         <a href="https://github.com/betaWeb/flashjs" target="_blank" class="fa fa-github gh-link-first" title="GitHub repository"></a>
         <a href="https://github.com/betaWeb/flashjs/archive/master.zip" class="fa fa-cloud-download gh-link-last" title="Download Latest as .zip"></a>
       </div>
@@ -59,6 +59,86 @@
             <br>
             <p>You can also create a flash message by instanciating the <a href="https://github.com/betaWeb/flashjs/blob/master/src/FlashMessage.js" target="_blank" class="color underlined">FlashMessage</a> class :</p>
             <div class="highlight highlight-js"><pre><span class="pl-en">new</span>&nbsp;<span class="pl-c1">window</span>.<span class="pl-smi">FlashMessage</span>(<span class="pl-s"><span class="pl-pds">'</span>This is a successs flash message !<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>);</pre></div>
+        </article>
+
+        <article id="options">
+          <h2 class="font center header-block"><a class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h2>
+          <p>Moreover, <a href="https://github.com/betaWeb/flashjs" target="_blank" class="color underlined">flash.js</a> comes with a lot of options :</p>
+          <div class="highlight highlight-source-js"><pre><span class="pl-c1">window</span>.<span class="pl-smi">FlashMessage</span>.<span class="pl-en">info</span>(<span class="pl-s"><span class="pl-pds">'</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="pl-pds">'</span></span>, {
+  progress<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  interactive<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  timeout<span class="pl-k">:</span> <span class="pl-c1">8000</span>,
+  appear_delay<span class="pl-k">:</span> <span class="pl-c1">200</span>,
+  container<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.flash-container<span class="pl-pds">'</span></span>,
+  theme<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>,
+  classes<span class="pl-k">:</span> {
+      container<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>flash-container<span class="pl-pds">'</span></span>,
+      flash<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>flash-message<span class="pl-pds">'</span></span>,
+      visible<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>is-visible<span class="pl-pds">'</span></span>,
+      progress<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>flash-progress<span class="pl-pds">'</span></span>,
+      progress_hidden<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>is-hidden<span class="pl-pds">'</span></span>
+  }
+});</pre></div>
+
+          <br>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th colspan="3" class="config-title">Configuration options</th>
+              </tr>
+              <tr>
+                <th>Option</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><p><strong>progress</strong><br><small>Boolean / false</small></p></td>
+                <td><p>Displays a progress bar at the bottom of the flash message</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>interactive</strong><br><small>Boolean / false</small></p></td>
+                <td><p>Activate flash message actions (pause on mouseover, close on click)</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>timeout</strong><br><small>Number / 8000</small></p></td>
+                <td><p>Flash message timeout (in milliseconds)</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>appear_delay</strong><br><small>Number / 200</small></p></td>
+                <td><p>Delay before flash message appears (in milliseconds)</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>container</strong><br><small>String / '.flash-container'</small></p></td>
+                <td><p>Flash messages container element selector</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>theme</strong><br><small>String / 'default'</small></p></td>
+                <td><p>CSS theme<br>(availables: default, dark)</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>classes.container</strong><br><small>String / 'flash-container'</small></p></td>
+                <td><p>Custom css class for flash container element</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>classes.flash</strong><br><small>String / 'flash-message'</small></p></td>
+                <td><p>Custom css class for flash message element</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>classes.visible</strong><br><small>String / 'is-visible'</small></p></td>
+                <td><p>Flash message element css visible class</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>classes.progress</strong><br><small>String / 'flash-progress'</small></p></td>
+                <td><p>Flash message progress bar element css class</p></td>
+              </tr>
+              <tr>
+                <td><p><strong>classes.progress_hidden</strong><br><small>String / 'is-hidden'</small></p></td>
+                <td><p>Flash message progress bar element hidden css class</p></td>
+              </tr>
+            </tbody>
+          </table>
         </article>
 
         <article id="examples">

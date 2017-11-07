@@ -6,6 +6,7 @@ $white: #fff;
 $black: #000;
 $dark: #2C3433;
 $grey: #9e9e9e;
+$lightgrey: #f3f3f3;
 $border: #ddd;
 $disabled: #aaa;
 $success: #4CAF50;
@@ -290,6 +291,55 @@ article{
 	color: $white;
 	background-color: $dark !important;
 	border: none;
+}
+
+
+// TABLE
+.main-content .table {
+	display: table;
+	width: 100%;
+
+	th:first-of-type, td:first-of-type {
+		text-align: right;
+	}
+
+	tbody td:first-of-type {
+		font-family: 'monospace';
+		font-size: 14px;
+	}
+
+	.config-title {
+		background-color: rgba($dark, .8);
+		color: $white;
+		text-transform: uppercase;
+		text-align: center !important;
+	}
+
+	thead tr th:not(.config-title) {
+		font-size: 20px;
+	}
+
+	th, td {
+    text-align: left;
+		padding: 0.7rem 1.4rem;
+	}
+
+	td {
+		font-size: 16px;
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: $lightgrey;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	td > p > small {
+		color: $grey;
+		font-style: italic;
+	}
 }
 
 
