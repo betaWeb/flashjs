@@ -48,9 +48,10 @@ export default class FlashMessage {
                 progress: 'flash-progress',
                 progress_hidden: 'is-hidden'
             },
+            theme: '',
             onShow: null,
             onClick: null,
-            onClose: null
+            onClose: null,
         }
     }
 
@@ -128,6 +129,8 @@ export default class FlashMessage {
         } else {
             if (this.$_element.querySelector('.thumb')) this.$_element.classList.add('has-thumb')
         }
+
+        this._setTheme()
         
         if (this._hasProgress()) this._progressBar()
         if (this.$_element.dataset.timeout)
@@ -254,6 +257,11 @@ export default class FlashMessage {
         window.clearInterval(this._progress_interval)
         this._progress_interval = null
         this._progress_value = 0
+    }
+
+    _setTheme () {
+        if (this.options.theme.length)
+            this.$_element.classList.add(`${this.options.theme}-theme`)
     }
 
 }

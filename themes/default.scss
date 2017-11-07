@@ -1,19 +1,7 @@
 /* FLASHJS - DEFAULT THEME */
 
-// Variables
-$white: #fff;
-$black: #000;
-$dark: #2C3433;
-$grey: #9e9e9e;
-$disabled: #aaa;
-$success: #4CAF50;
-$warning: #FF851B;
-$error: #FF4136;
-$info: #0074D9;
-$purple: #8A2BE2;
+@import './variables.scss';
 
-
-// Theme
 .flash-container {
 	position: fixed;
 	top: 75px;
@@ -34,7 +22,7 @@ $purple: #8A2BE2;
 			border-bottom-right-radius: 4px;
 			margin-bottom: 10px;
 			padding: 5px 35px 5px 20px;
-			box-shadow: 2px 2px 33px 8px rgba($black, 0.1);
+			box-shadow: 2px 2px 33px 8px rgba($black, .1);
 			line-height: 1.4;
 			cursor: pointer;
 
@@ -47,7 +35,7 @@ $purple: #8A2BE2;
 				width: 0;
 				height: 3px;
 				opacity: 1;
-				background-color: rgba($black, 0.15);
+				background-color: rgba($black, .15);
 				transition: opacity .1s;
 				
 				&.is-hidden {
@@ -162,3 +150,5 @@ $purple: #8A2BE2;
 		max-width: 100%;
 	}
 }
+
+@import './dark.scss';

@@ -10,7 +10,8 @@
     window.FlashMessage.success('Success', {
       timeout: 8000,
       interactive: false,
-      progress: true
+      progress: true,
+      theme: 'dark'
     });
     window.FlashMessage.warning('Warning', {
       timeout: 5000,

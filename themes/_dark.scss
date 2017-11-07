@@ -1,0 +1,11 @@
+/* FLASH JS DARK THEME */
+
+.flash-container .flash-message.dark-theme {
+  background-color: $dark;
+  color: $white;
+
+  .flash-progress {
+    background-color: rgba($white, .5);
+  }
+}
+

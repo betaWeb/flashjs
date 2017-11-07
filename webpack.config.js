@@ -4,9 +4,12 @@ const path = require('path')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const autoprefixer = require('autoprefixer')
+const dev_env = process.env.NODE_ENV == 'dev'
+const dot_min = dev_env ? '' : '.min'
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].min.css",
+    filename: `[name]${dot_min}.css`,
 })
 const externals = {
   "jquery": "jQuery"
@@ -23,7 +26,7 @@ let config = {
 
   output: {
     path: path.resolve('./dist'),
-    filename: '[name].min.js'
+    filename: `[name].min.js`
   },
 
   devtool: false,
@@ -41,9 +44,15 @@ let config = {
         use: extractSass.extract({
           use: [
             {
-              loader: "css-loader"
+              loader: "css-loader",
+              options: { minimize: !dev_env }
             }, {
               loader: "sass-loader"
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                plugins: _ => [autoprefixer]
+              }
             }
           ],
           fallback: "style-loader"
