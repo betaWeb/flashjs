@@ -287,6 +287,16 @@ article{
 	}
 }
 
+.btn-dark {
+	border: 2px solid darken($dark, 5%);
+	background-color: $dark;
+	color: $white;
+
+	&:hover {
+		border: 2px solid darken($dark, 5%);
+	}
+}
+
 .btn-default:hover {
 	color: $white;
 	background-color: $dark !important;

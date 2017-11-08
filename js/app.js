@@ -1,20 +1,23 @@
 var app = function() {
 	var self = this;
 
-	self.flashjs = function() {	
-		var btns = $('button[data-flash]', '#examples-1').each(function () {
+	self.flashjs = function () {	
+		$('button[data-flash]', '#examples-1').each(function () {
 			$(this).click(function () {
 				var $el = $(this);
 				var type = $el.data('flash');
 				var message = $el.data('message');
+				var theme = $el.data('theme') || 'default';
+				console.log(theme)
 				var flash = new window.FlashMessage(message, type, {
-					progress: true
+					progress: true,
+					theme: theme
 				});
 			});
 		});
 	};
 
-	self.hash = function(h) {
+	self.hash = function (h) {
 		if (window.history.pushState) {
 			window.history.pushState(null, null, h);
 		} else {
@@ -22,17 +25,17 @@ var app = function() {
 		}
 	};
 
-	self.menuScroll = function() {
-		var sections  = [$('#home')];
-		var current   = false;
+	self.menuScroll = function () {
+		var sections = [$('#home')];
+		var current = false;
 		var $menuLink = $('.menu-link');
 
-		$menuLink.each(function() {
+		$menuLink.each(function () {
 			sections.push($($(this).attr('href')));
 		});
 
-		$(window).scroll(function() {
-			var $win 	  = $(this);
+		$(window).scroll(function () {
+			var $win = $(this);
 			var scrollTop = $win.scrollTop() + ($win.height() / 4) - 32;
 
 			for (var i in sections) {
@@ -49,7 +52,7 @@ var app = function() {
 			}
 		});
 
-		$('a[href^="#"]').click(function(e) {
+		$('a[href^="#"]').click(function (e) {
 			e.preventDefault();
 
 			var $a = $(this);
@@ -72,13 +75,13 @@ var app = function() {
 		});
 	};
 
-	self.mobileMenu = function() {
-		var $overlay 	= $('#overlay');
-		var $trigger 	= $('#mobile-menu-trigger');
+	self.mobileMenu = function () {
+		var $overlay = $('#overlay');
+		var $trigger = $('#mobile-menu-trigger');
 		var $right_menu = $('#right-menu');
 
-		$trigger.on('click', function() {
-			$overlay.fadeToggle().on('click', function() {
+		$trigger.on('click', function () {
+			$overlay.fadeToggle().on('click', function () {
 				$overlay.fadeOut();
 				$right_menu.removeClass('is-active');
 			});
@@ -87,7 +90,7 @@ var app = function() {
 	};
 
 	return {
-		init: function() {
+		init: function () {
 			self.flashjs();
 			self.menuScroll();
 			self.mobileMenu();
@@ -95,6 +98,6 @@ var app = function() {
 	};
 };
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 	app().init();
 });
