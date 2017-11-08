@@ -154,7 +154,7 @@ header{
 				display: block;
 				width: 100%; height: $header / 2;
 				line-height: $header / 2;
-				margin: 8px 0;
+				margin: 4px 0;
 				text-align: center;
 				font-size: 16px;
 				text-transform: uppercase;
@@ -209,12 +209,13 @@ article{
 }
 
 .btn {
-	min-width: 150px;
+	min-width: 180px;
 	padding: 8px 5px;
 	background-color: $white;
 	border: 2px solid $dark;
 	color: $dark;
 	border-radius: 25px;
+	margin: .5em;
 
 	&:hover {
 		color: $dark;
@@ -308,6 +309,8 @@ article{
 .main-content .table {
 	display: table;
 	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
 
 	th:first-of-type, td:first-of-type {
 		text-align: right;
@@ -492,6 +495,7 @@ article{
 
 @media all and (max-width: 768px) {
 	.flash-container {
+		top: 10px;
 		max-width: 50%;
 	}
 }
@@ -502,4 +506,16 @@ article{
 		left: 10px;
 		max-width: 100%;
 	}
+	.main-content .table {
+		display: block;
+	}
+}
+
+.flash-container .flash-message.dark-theme {
+  background-color: $dark;
+  color: $white;
+
+  .flash-progress {
+    background-color: rgba($white, .5);
+  }
 }

@@ -150,7 +150,7 @@ header {
           width: 100%;
           height: 32px;
           line-height: 32px;
-          margin: 8px 0;
+          margin: 4px 0;
           text-align: center;
           font-size: 16px;
           text-transform: uppercase; }
@@ -205,12 +205,13 @@ article {
           justify-content: center; }
 
 .btn {
-  min-width: 150px;
+  min-width: 180px;
   padding: 8px 5px;
   background-color: #fff;
   border: 2px solid #2C3433;
   color: #2C3433;
-  border-radius: 25px; }
+  border-radius: 25px;
+  margin: .5em; }
   .btn:hover {
     color: #2C3433;
     background-color: transparent; }
@@ -275,7 +276,9 @@ article {
 
 .main-content .table {
   display: table;
-  width: 100%; }
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto; }
   .main-content .table th:first-of-type, .main-content .table td:first-of-type {
     text-align: right; }
   .main-content .table tbody td:first-of-type {
@@ -419,13 +422,16 @@ article {
 
 @media all and (max-width: 768px) {
   .flash-container {
+    top: 10px;
     max-width: 50%; } }
 
 @media all and (max-width: 480px) {
   .flash-container {
     right: 10px;
     left: 10px;
-    max-width: 100%; } }
+    max-width: 100%; }
+  .main-content .table {
+    display: block; } }
 
 .flash-container .flash-message.dark-theme {
   background-color: #2C3433;
