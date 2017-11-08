@@ -6,7 +6,7 @@ You can [try it yourself](https://betaweb.github.io/flashjs/#examples) here.
 You only have to include the [flash.js](https://betaweb.github.io/flashjs/) script into your HTML. That's it !
 
 ```HTML
-<script src="path/to/flashjs.min.js"></script>
+<script src="path/to/flash.min.js"></script>
 
 ```
 <br>
@@ -68,7 +68,7 @@ However, you can easily use [flash.js](https://betaweb.github.io/flashjs/) with 
 </div>
 
 <!-- Don't forget to add flash.js jQuery plugin script right after the flash.js library ! -->
-<script src="path/to/flashjs.min.js"></script>
+<script src="path/to/flash.min.js"></script>
 <script src="path/to/flash.jquery.min.js"></script>
 ```
 
@@ -94,7 +94,6 @@ window.FlashMessage.info('Lorem ipsum dolor sit amet, consectetur adipiscing eli
   interactive: true, // Define flash message actions (pause on mouseover, close on click) 
   timeout: 8000, // Flash message timeout
   appear_delay: 200, // Delay before flash message appears
-  remove_delay: 600, // Flash message removal timeout
   container: '.flash-container', // Flash messages container element selector
   theme: 'default', // CSS theme (availables: default, dark)
   classes: {
@@ -109,4 +108,4 @@ window.FlashMessage.info('Lorem ipsum dolor sit amet, consectetur adipiscing eli
 
 <br>
 
-You can read the [documentation](https://betaweb.github.io/flashjs/) for more informations.
+You can read the [documentation](https://betaweb.github.io/flashjs/#options) for more informations.
