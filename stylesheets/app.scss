@@ -215,7 +215,7 @@ article{
 	border: 2px solid $dark;
 	color: $dark;
 	border-radius: 25px;
-	margin: .5em;
+	margin: .5em !important;
 
 	&:hover {
 		color: $dark;

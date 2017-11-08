@@ -211,7 +211,7 @@ article {
   border: 2px solid #2C3433;
   color: #2C3433;
   border-radius: 25px;
-  margin: .5em; }
+  margin: .5em !important; }
   .btn:hover {
     color: #2C3433;
     background-color: transparent; }
