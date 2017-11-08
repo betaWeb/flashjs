@@ -3,11 +3,57 @@
 import Flash from './Flash'
 
 export default class FlashMessage {
+    
+    static get _CONSTANTS () {
+        return {
+            TYPES: {
+                SUCCESS: 'success',
+                WARNING: 'warning',
+                ERROR: 'error',
+                INFO: 'info',
+            },
+            THEME: 'default',
+            CONTAINER: '.flash-container',
+            CLASSES: {
+                CONTAINER: 'flash-container',
+                VISIBLE: 'is-visible',
+                FLASH: 'flash-message',
+                PROGRESS: 'flash-progress',
+                PROGRESS_HIDDEN: 'is-hidden'
+            },
+        }
+    }
+    
+    static get DEFAULT_OPTIONS () {
+        return {
+            progress: false,
+            interactive: true,
+            timeout: 8000,
+            appear_delay: 200,
+            remove_delay: 600,
+            container: FlashMessage._CONSTANTS.CONTAINER,
+            classes: {
+                container: FlashMessage._CONSTANTS.CLASSES.CONTAINER,
+                visible: FlashMessage._CONSTANTS.CLASSES.VISIBLE,
+                flash: FlashMessage._CONSTANTS.CLASSES.FLASH,
+                progress: FlashMessage._CONSTANTS.CLASSES.PROGRESS,
+                progress_hidden: FlashMessage._CONSTANTS.CLASSES.PROGRESS_HIDDEN
+            },
+            theme: FlashMessage._CONSTANTS.THEME,
+            onShow: null,
+            onClick: null,
+            onClose: null,
+        }
+    }
 
-    constructor (message, type = 'error', options = {}) {
+    constructor (
+        message, 
+        type = FlashMessage._CONSTANTS.TYPES.ERROR, 
+        options = {}
+    ) {
         if (type.constructor === Object) {
             options = type
-            type = 'error'
+            type = FlashMessage._CONSTANTS.TYPES.ERROR
         }
 
         this.$_element = null
@@ -32,47 +78,25 @@ export default class FlashMessage {
         this._createContainer()
         this._createMessage()
     }
-    
-    static get DEFAULT_OPTIONS () {
-        return {
-            progress: false,
-            interactive: true,
-            timeout: 8000,
-            appear_delay: 200,
-            remove_delay: 600,
-            container: '.flash-container',
-            classes: {
-                container: 'flash-container',
-                visible: 'is-visible',
-                flash: 'flash-message',
-                progress: 'flash-progress',
-                progress_hidden: 'is-hidden'
-            },
-            theme: 'default',
-            onShow: null,
-            onClick: null,
-            onClose: null,
-        }
-    }
 
-    static create (message, type = 'error', options = {}) {
+    static create (message, type = FlashMessage._CONSTANTS.TYPES.ERROR, options = {}) {
         return new FlashMessage(message, type, options)
     }
 
     static success (message, options = {}) {
-        return new FlashMessage(message, 'success', options)
+        return new FlashMessage(message, FlashMessage._CONSTANTS.TYPES.SUCCESS, options)
     }
 
     static warning (message, options = {}) {
-        return new FlashMessage(message, 'warning', options)
+        return new FlashMessage(message, FlashMessage._CONSTANTS.TYPES.WARNING, options)
     }
 
     static error (message, options = {}) {
-        return new FlashMessage(message, 'error', options)
+        return new FlashMessage(message, FlashMessage._CONSTANTS.TYPES.ERROR, options)
     }
 
     static info (message, options = {}) {
-        return new FlashMessage(message, 'info', options)
+        return new FlashMessage(message, FlashMessage._CONSTANTS.TYPES.INFO, options)
     }
 
     static addCustomVerbs (...verbs) {
@@ -103,7 +127,7 @@ export default class FlashMessage {
 
     _composeMessage () {
         this.message = this.$_element.dataset.message || this.$_element.innerHTML || ''
-        this.type = this.$_element.dataset.type || 'error'
+        this.type = this.$_element.dataset.type || FlashMessage._CONSTANTS.TYPES.ERROR
         if (this.$_element.dataset.progress !== undefined) this.setOptions({ progress: true })
         this.$_element.classList.add(`flash-${this.type}`)
     }
@@ -260,7 +284,7 @@ export default class FlashMessage {
 
     _setTheme () {
         const theme = this.$_element.dataset.theme || this.options.theme || ''
-        if (theme.length && theme !== 'default')
+        if (theme.length && theme !== FlashMessage._CONSTANTS.THEME)
             this.$_element.classList.add(`${theme}-theme`)
     }
 
