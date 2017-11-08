@@ -259,8 +259,9 @@ export default class FlashMessage {
     }
 
     _setTheme () {
-        if (this.options.theme.length && this.options.theme !== 'default')
-            this.$_element.classList.add(`${this.options.theme}-theme`)
+        const theme = this.$_element.dataset.theme || this.options.theme || ''
+        if (theme.length && theme !== 'default')
+            this.$_element.classList.add(`${theme}-theme`)
     }
 
 }
