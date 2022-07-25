@@ -193,7 +193,7 @@ export default class FlashMessage {
         if (this._isInteractive()) this._unbindEvents()
         this.$_element.classList.remove(this.options.classes.visible)
         this.$_element.addEventListener('transitionend', () => {
-            this.$_container.removeChild(this.$_element)
+            this.$_container.remove(this.$_element)
             this._clear()
         })
     }
