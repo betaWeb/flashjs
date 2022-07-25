@@ -3,7 +3,7 @@ Flash.js is a simple JavaScript library allowing you to create and handle HTML f
 You can [try it yourself](https://betaweb.github.io/flashjs/#examples) here.
 
 ### Installation :
-You only have to include the [flash.js](https://betaweb.github.io/flashjs/) script into your HTML. That's it !
+You only have to include the [flash.js](https://betaweb.github.io/flashjs/dist/flash.min.js) script into your HTML. That's it !
 
 ```HTML
 <script src="path/to/flash.min.js"></script>
